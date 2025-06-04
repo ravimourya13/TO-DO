@@ -1,0 +1,12 @@
+.navbar {
+  width: 100%;              /* Full width */
+  position: fixed;          /* Sticks to top */
+  top: 0;
+  left: 0;
+  background-color: #fff;   /* Optional: set background */
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;            /* Stays above other content */
+}
