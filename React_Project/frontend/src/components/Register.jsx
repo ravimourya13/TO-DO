@@ -1,6 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import React from "react";
+
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -19,9 +21,10 @@ function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:3001/register", formData);
+      const res = await axios.post("http://localhost:5000/register", formData);
+      console.log(res);
       alert("Registration successful!");
-      navigate("/home");
+      navigate("/home");  
     } catch (err) {
       console.error(err);
       alert("Registration failed.");
@@ -34,7 +37,7 @@ function Register() {
         <div className="col mt-3">
           <div className="card">
             <div className="card-body">
-              <h2 style={{ marginTop: "20px", color: "dark" }}>Register</h2>
+              <h2 style={{  color: "dark" }}>Register</h2>
               <form onSubmit={handleSubmit} action="/register" method="POST">
                 <div className="form-floating mb-3">
                   <input
@@ -50,15 +53,15 @@ function Register() {
                 </div>
                 <div className="form-floating mb-3">
                   <input
-                    type="date"
+                    type="int"
                     className="form-control"
-                    name="birthdate"
-                    id="birthdate"
-                    placeholder="Birthdate"
+                    name="phone"
+                    id="phone"
+                    placeholder="phone_no"
                     onChange={handleChange}
                     required
                   />
-                  <label htmlFor="formId1">Birthdate</label>
+                  <label htmlFor="formId1">Phone</label>
                 </div>
                 <div className="form-floating mb-3">
                   <input

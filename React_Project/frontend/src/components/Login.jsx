@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+
+
 function Login() {
   const [credentials, setCredentials] = useState({
     name: "",
@@ -17,7 +19,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:3001/login", credentials);
+      const res = await axios.post("http://localhost:5000/login", credentials);
       if (res.data.success) {
         alert("Login successful!");
         navigate("/home");
@@ -31,25 +33,7 @@ function Login() {
   };
 
   return (
-    // <form onSubmit={handleSubmit}>
-    //   <input
-    //     type="text"
-    //     name="name"
-    //     placeholder="Name"
-    //     value={credentials.name}
-    //     onChange={handleChange}
-    //     required
-    //   />
-    //   <input
-    //     type="password"
-    //     name="password"
-    //     placeholder="Password"
-    //     value={credentials.password}
-    //     onChange={handleChange}
-    //     required
-    //   />
-    //   <button type="submit">Login</button>
-    // </form>
+  
     <div className="container">
       <div className="row justify-content-center align-items-center g-2">
         <div className="col mt-3">
@@ -62,7 +46,7 @@ function Login() {
                     type="text"
                     className="form-control"
                     name="name"
-                    id="formId1"
+                    id="name"
                     placeholder="Username"
                     onChange={handleChange}
                     required
@@ -74,7 +58,7 @@ function Login() {
                     type="password"
                     className="form-control"
                     name="password"
-                    id="formId1"
+                    id="password"
                     placeholder="Password"
                     onChange={handleChange}
                     required
